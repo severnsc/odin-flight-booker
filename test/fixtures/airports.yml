@@ -1,11 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+FLL:
+  city: "Ft. Lauderdale"
+  state: "FL"
+  code: "FLL"
 
-one:
-  city: MyString
-  state: MyString
-  code: MyString
-
-two:
-  city: MyString
-  state: MyString
-  code: MyString
+MIA:
+  city: "Miami"
+  state: "FL"
+  code: "MIA"
