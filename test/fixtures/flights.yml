@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dept_airport_id: 1
+  arrival_airport_id: 1
+  dept_datetime: 2017-02-15 11:47:15
+  arrival_datetime: 2017-02-15 11:47:15
+  duration: 1.5
+
+two:
+  dept_airport_id: 1
+  arrival_airport_id: 1
+  dept_datetime: 2017-02-15 11:47:15
+  arrival_datetime: 2017-02-15 11:47:15
+  duration: 1.5
