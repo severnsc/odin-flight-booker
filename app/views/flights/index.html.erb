@@ -1,5 +1,36 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		
+		<%= form_for(@flight, url: root_path, method: :get) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :departure_airport %>
+			<%= f.select(:dept_airport, options_from_collection_for_select(@airports, :id, :code), {}, {class: 'form-control'}) %>
+
+			<%= f.label :arrival_airport %>
+			<%= f.select(:arrival_airport, options_from_collection_for_select(@airports, :id, :code), {}, {class: 'form-control'}) %>
+
+			<%= f.label :number_of_passengers %>
+			<%= f.select(:number_of_passengers, [["1", 1], ["2", 2], ["3", 3], ["4", 4]], {}, {class: 'form-control'}) %>
+
+			<%= f.label :dept_datetime, "Flight Date" %>
+			<%= f.select(:dept_datetime, options_from_collection_for_select(@flights.select('dept_datetime').map{|o| o.dept_datetime.strftime('%m/%d/%Y')}.uniq, :upcase, :upcase), {}, {class: 'form-control'}) %>
+
+			<%= f.submit "Find Flights", class: "btn btn-primary" %>
+		<% end %>
+		<% unless @flight_results.nil? %>
+			<% @flight_results.each do |flight| %>
+				<div class="flight_result">
+					<p><%= flight.dept_airport.code %></p>
+					<p><%= flight.arrival_airport.code %></p>
+					<p><%= flight.dept_datetime.strftime('%m/%d/%Y') %></p>
+					<p><%= flight.arrival_datetime.strftime('%m/%d/%Y') %></p>
+					<%= form_for(flight, url: '/booking/new/', method: :get) do |f| %>
+						<%= f.hidden_field :id, value: flight.id %>
+						<%= f.hidden_field :number_of_passengers, value: @number_of_passengers %>
+						<%= f.submit "Book now!", class: 'btn btn-primary' %>
+					<% end %>
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 </div>

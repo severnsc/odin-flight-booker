@@ -5,5 +5,5 @@ Airport.create!(city: "New York", state: "NY", code: "JFK")
 Airport.create!(city: "Boston", state: "MA", code: "BOS")
 
 30.times do |n|
-	Flight.create!(dept_airport_id: rand(1..20), arrival_airport_id: rand(1..20), dept_datetime: Time.zone.now, arrival_datetime: Time.zone.now + 2.hours, duration: 2.0)
+	Flight.create!(dept_airport_id: rand(1..5), arrival_airport_id: rand(1..5), dept_datetime: Time.zone.now, arrival_datetime: Time.zone.now + 2.hours, duration: 2.0)
 end
