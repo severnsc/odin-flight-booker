@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>Booking for flight <%= @booking.flight.id %></h1>
+		<h2>Flight date: <%= @booking.flight.dept_datetime.strftime("%m/%d/%Y") %></h2>
+		<h2>Passengers:</h2>
+		<% @booking.passengers.each do |passenger| %>
+			<h2><%= passenger.first_name %> <%= passenger.last_name %></h2>
+		<% end %>
+	</div>
+</div>

@@ -24,7 +24,7 @@
 					<p><%= flight.arrival_airport.code %></p>
 					<p><%= flight.dept_datetime.strftime('%m/%d/%Y') %></p>
 					<p><%= flight.arrival_datetime.strftime('%m/%d/%Y') %></p>
-					<%= form_for(flight, url: '/booking/new/', method: :get) do |f| %>
+					<%= form_for(flight, url: new_booking_path, method: :get) do |f| %>
 						<%= f.hidden_field :id, value: flight.id %>
 						<%= f.hidden_field :number_of_passengers, value: @number_of_passengers %>
 						<%= f.submit "Book now!", class: 'btn btn-primary' %>

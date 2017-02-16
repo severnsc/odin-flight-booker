@@ -1,6 +1,6 @@
 class Passenger < ApplicationRecord
 	before_save :downcase_email
-	has_many :bookings
+	has_and_belongs_to_many :bookings
 	has_many :flights, through: :bookings
 	validates :first_name, presence:true, length: {maximum: 30}
 	validates :last_name, presence: true, length: {maximum: 30}

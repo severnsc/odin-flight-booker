@@ -1,0 +1,27 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<%= form_for(@booking) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.hidden_field :flight_id, value: @flight.id %>
+
+			<%= f.hidden_field :number_of_passengers, value: @number_of_passengers %>
+
+			<%= f.fields_for :passengers, [Passenger.new]*@number_of_passengers do |passenger| %>
+				<h2>Passenger</h2>	
+
+				<%= passenger.label :first_name %>
+				<%= passenger.text_field :first_name %>
+
+				<%= passenger.label :last_name %>
+				<%= passenger.text_field :last_name %>
+
+				<%= passenger.label :email %>
+				<%= passenger.email_field :email %>
+
+			<% end %>
+
+			<%= f.submit "Book flight", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
