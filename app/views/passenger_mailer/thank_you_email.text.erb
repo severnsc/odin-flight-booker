@@ -1,0 +1,5 @@
+Thank you for booking with us!
+
+<%= @user.first_name.capitalize %>, thank you for booking your flight from <%= @booking.flight.dept_airport.city %> to <%= @booking.flight.arrival_airport.city %> on <%= @booking.flight.dept_datetime.strftime('%m/%d/%Y') %> with us! Your flight is confirmed!
+
+Have a wonderful day!

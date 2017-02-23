@@ -18,6 +18,9 @@ class BookingsController < ApplicationController
 		end
 		if @booking.save
 			flash[:success] = "Flight booked!"
+			@booking.passengers.each do |passenger|
+				PassengerMailer.thank_you_email(passenger, @booking).deliver_now!
+			end
 			redirect_to booking_path(@booking)
 		else
 			byebug

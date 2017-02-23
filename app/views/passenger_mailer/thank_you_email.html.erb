@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-quiv='Content-Type' />
+	</head>
+	<body>
+		<h1>Thank you for booking with us!</h1>
+		<p><%= @user.first_name.capitalize %>, your booking for <%= @booking.flight.arrival_airport.city %> flying out of <%= @booking.flight.dept_airport.city %> on <%= @booking.flight.dept_datetime.strftime('%m/%d/%Y') %> is finalized! Thank you for booking with us!</p>
+	</body>
+</html>
